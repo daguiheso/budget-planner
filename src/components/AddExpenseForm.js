@@ -27,6 +27,7 @@ const AddExpenseForm = ({setExpenses}) => {
 						className='form-control'
 						name='name'
 						autoComplete="off"
+						placeholder="Restaurant"
 						value={name}
 						onChange={handleInputChange}
 					></input>
@@ -40,6 +41,7 @@ const AddExpenseForm = ({setExpenses}) => {
 						name='cost'
 						autoComplete="off"
 						value={cost}
+						placeholder="$23"
 						onChange={handleInputChange}
 					></input>
 				</div>
