@@ -1,38 +1,56 @@
 import React from 'react';
+import { useForm } from '../hooks/useForm';
 
-const AddExpenseForm = () => {
+const AddExpenseForm = ({setExpenses}) => {
+
+	const [ values, handleInputChange, reset] = useForm({
+		name: '',
+		cost: ''
+	})
+	const { name, cost } = values
+
+	const handleClick = (e) => {
+		e.preventDefault()
+		const id = Date.now()
+		setExpenses(expenses => [...expenses, {...values, id}])
+		reset()
+	}
+	
 	return (
 		<form>
 			<div className='row'>
 				<div className='col-sm'>
-					<label for='name'>Name</label>
+					<label htmlFor='name'>Name</label>
 					<input
 						required='required'
 						type='text'
 						className='form-control'
-						id='name'
+						name='name'
 						autoComplete="off"
+						value={name}
+						onChange={handleInputChange}
 					></input>
 				</div>
 				<div className='col-sm'>
-					<label for='cost'>Cost</label>
+					<label htmlFor='cost'>Cost</label>
 					<input
 						required='required'
-						type='text'
+						type='number'
 						className='form-control'
-						id='cost'
+						name='cost'
 						autoComplete="off"
+						value={cost}
+						onChange={handleInputChange}
 					></input>
 				</div>
-
 			</div>
-            <div className='row'>
-            	<div className='col-sm'>
-					<button type='submit' className='btn btn-primary mt-3'>
+			<div className='row'>
+				<div className='col-sm'>
+					<button type='submit' onClick={handleClick} className='btn btn-primary mt-3'>
 						Save
 					</button>
 				</div>
-            </div>
+			</div>
 		</form>
 	);
 };
