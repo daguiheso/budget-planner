@@ -21,11 +21,11 @@ You can use `git tag [Tag version]` to see the changes
 
 `02` - Functional form with values ready to be added
 
-`03` - Passing props into components to add expenses and see the total budget
+`03` - Passing `props` into components to add expenses and see the total budget
 
 `04` - Use of `useContext hook` as first approach to get expenses and budget
 
-`05` - Refactor the context within a single file with reducers and state management
+`05` - Refactor the context within a single file with `reducers and state management`
 
-`06` - Refactor the context by splitting reducers and states
+`06` - Refactor the context by splitting `reducers and states`
 
