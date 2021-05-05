@@ -21,10 +21,14 @@ const App = () => {
   })
 
   useEffect(() => {
-    let totalExpenses = 0;
-    expenses.forEach( ({cost}) => {
-      totalExpenses += Number(cost)
-    })
+    // let totalExpenses = 0;
+    // expenses.forEach( ({cost}) => {
+    //   totalExpenses += Number(cost)
+    // })
+    const totalExpenses = expenses.reduce((acum, current) => {
+      return acum + Number(current.cost);
+    }, 0);
+  
     setMoney({
       ...money,
       remaining: money.budget - totalExpenses
