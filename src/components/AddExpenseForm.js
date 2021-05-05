@@ -11,6 +11,7 @@ const AddExpenseForm = () => {
 						type='text'
 						className='form-control'
 						id='name'
+						autoComplete="off"
 					></input>
 				</div>
 				<div className='col-sm'>
@@ -20,6 +21,7 @@ const AddExpenseForm = () => {
 						type='text'
 						className='form-control'
 						id='cost'
+						autoComplete="off"
 					></input>
 				</div>
 
