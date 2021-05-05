@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Remaining = () => {
+const Remaining = ({remaining}) => {
 	return (
 		<div className='alert alert-success'>
-			<span>Remaining: $1000</span>
+			<span>Remaining: ${remaining}</span>
 		</div>
 	);
 };

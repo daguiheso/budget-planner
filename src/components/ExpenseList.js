@@ -1,17 +1,17 @@
 import React from 'react'
 import ExpenseItem from './ExpenseItem';
 
-const ExpenseList = () => {
-    const expenses = [
-		{ id: 12, name: 'shopping', cost: 40 },
-		{ id: 13, name: 'holiday', cost: 400 },
-		{ id: 14, name: 'car service', cost: 50 },
-	];
+const ExpenseList = ({expenses, setExpenses}) => {
+
+		const deleteExpense = (id) => {
+			const newExpenses = expenses.filter(expense => expense.id !== id)
+			setExpenses(newExpenses)
+		}
 
     return (
 		<ul className='list-group'>
 			{expenses.map(({id, name, cost}) => (
-				<ExpenseItem id={id} key={id} name={name} cost={cost} />
+				<ExpenseItem id={id} key={id} name={name} cost={cost} deleteExpense={deleteExpense} />
 			))}
 		</ul>
     )

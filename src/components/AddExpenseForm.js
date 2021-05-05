@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 
-const AddExpenseForm = () => {
+const AddExpenseForm = ({setExpenses}) => {
 
 	const [name, setName] = useState('')
 	const [cost, setCost] = useState('')
 
+	const reset = () => {
+		setName('')
+		setCost('')
+	}
+	
+
 	const handleClick = (e) => {
 		e.preventDefault()
 		console.log(name, cost)
+		const id = Date.now()
+		setExpenses(expenses => [...expenses, {name, cost, id}])
+		reset()
 	}
 	
 	return (

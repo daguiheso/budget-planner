@@ -1,9 +1,10 @@
 import React from 'react';
 
-const ExpenseTotal = () => {
+const ExpenseTotal = ({limit, remaining}) => {
+
 	return (
-		<div className='alert alert-primary'>
-			<span>Spent so far: $1000</span>
+		<div className={`alert ${remaining > limit ? 'alert-primary' : 'alert-danger'}`}>
+			<span>Spent so far: ${limit}</span>
 		</div>
 	);
 };
