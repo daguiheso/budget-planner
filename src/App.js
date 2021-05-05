@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Budget from './components/Budget';
 import Remaining from './components/Remaining';
 import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 import AddExpenseForm from './components/AddExpenseForm';
+import budgetContext from './context/context';
 
 const App = () => {
-
-  const [expenses, setExpenses] = useState([
-    { id: 12, name: 'Compras', cost: 10 },
-		{ id: 13, name: 'Navidad', cost: 200 },
-		{ id: 14, name: 'Lavado de carro', cost: 40 },
-  ]) 
-
-  const [money, setMoney] = useState({
-    budget: 2000,
-    remaining: 2000,
-    limit: 1000
-  })
-
+  const { expenses, setExpenses, money, setMoney } = useContext(budgetContext)
+  
   useEffect(() => {
-    // let totalExpenses = 0;
-    // expenses.forEach( ({cost}) => {
-    //   totalExpenses += Number(cost)
-    // })
     const totalExpenses = expenses.reduce((acum, current) => {
       return acum + Number(current.cost);
     }, 0);
