@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import budgetContext from '../context/context';
 
-const AddExpenseForm = ({setExpenses}) => {
+const AddExpenseForm = () => {
+
+	const { setExpenses } = useContext(budgetContext)
 
 	const [name, setName] = useState('')
 	const [cost, setCost] = useState('')
@@ -9,7 +12,7 @@ const AddExpenseForm = ({setExpenses}) => {
 		setName('')
 		setCost('')
 	}
-	
+
 
 	const handleClick = (e) => {
 		e.preventDefault()
@@ -18,7 +21,7 @@ const AddExpenseForm = ({setExpenses}) => {
 		setExpenses(expenses => [...expenses, {name, cost, id}])
 		reset()
 	}
-	
+
 	return (
 		<form>
 			<div className='row'>

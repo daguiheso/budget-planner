@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import budgetContext from '../context/context';
 
-const Budget = ({total}) => {
+const Budget = () => {
+	const { money } = useContext(budgetContext);
+
 	return (
 		<div className='alert alert-secondary'>
-			<span>Budget: ${total}</span>
+			<span>Budget: ${money.budget}</span>
 		</div>
 	);
 };
