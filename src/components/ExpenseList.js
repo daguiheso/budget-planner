@@ -4,11 +4,14 @@ import ExpenseItem from './ExpenseItem';
 
 const ExpenseList = () => {
 
-	const { expenses, setExpenses } = useContext(budgetContext);
+	const { expenses, dispatch } = useContext(budgetContext);
 
 	const deleteExpense = (id) => {
-		const newExpenses = expenses.filter(expense => expense.id !== id)
-		setExpenses(newExpenses)
+		const newExpenses = expenses.find(expense => expense.id === id)
+		dispatch({
+			type: 'DELETE_EXPENSE',
+			payload: newExpenses.id,
+		})
 	}
 
 	return (
