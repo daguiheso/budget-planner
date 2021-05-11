@@ -3,7 +3,7 @@ import budgetContext from '../context/context';
 
 const AddExpenseForm = () => {
 
-	const { setExpenses } = useContext(budgetContext)
+	const { dispatch } = useContext(budgetContext)
 
 	const [name, setName] = useState('')
 	const [cost, setCost] = useState('')
@@ -16,9 +16,11 @@ const AddExpenseForm = () => {
 
 	const handleClick = (e) => {
 		e.preventDefault()
-		console.log(name, cost)
 		const id = Date.now()
-		setExpenses(expenses => [...expenses, {name, cost, id}])
+		dispatch({
+			type: 'ADD_EXPENSE',
+			payload: {name, cost, id},
+		})
 		reset()
 	}
 
