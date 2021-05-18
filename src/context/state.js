@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import budgetContext from './context';
 import AppReducer from './mutations';
 
